@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<fieldset>
+<legend>Display Employees</legend>
+<table>
+    <tr>
+        <th>CourseId</th>
+        <th>courseName</th>
+        <th>courseFee</th>
+        <th>courseDuration</th>
+        <th>courseStatus</th>
+        <th>courseDescription</th>
+        
+    </tr>
+    {% for course in courses  %}
+    <tr>
+        
+        <td>{{course.courseId}}</td>
+        <td>{{course.courseName}}</td>
+        <td>{{course.courseFee}}</td>
+        <td>{{course.courseDuration}}</td>
+        <td>{{course.courseStatus}}</td>
+        <td>{{course.courseDescription}}</td>
+        <td><a href="{{url_for('modifycourse',a=course._id)}}">Edit</a></td>
+    </tr>
+    {% endfor %}
+   
+
+</table>
+<p><a href="{{url_for('course')}}">Menu</a></p>
+</fieldset>
+{% endblock %}

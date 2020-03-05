@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="" method="POST" novalidate>
+    {{form.hidden_tag()}}
+    
+    <fieldset>
+        <legend>Login</legend>
+        <p>
+            {{form.courseName.label}}{{form.courseName(size=32)}}
+            {% for error in form.courseName.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{form.courseDuration.label}}{{form.courseDuration(size=32)}}
+            {% for error in form.courseDuration.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{form.courseFee.label}}{{form.courseFee(size=32)}}
+            {% for error in form.courseFee.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{form.courseDescription.label}}{{form.courseDescription(size=32)}}
+            {% for error in form.courseDescription.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{form.courseStatus.label}}{{form.courseStatus(size=32)}}
+            {% for error in form.courseStatus.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}
+        </p>
+        <p>{{form.submit()}}</p>
+        
+        <p><a href="{{url_for('course')}}">Back to menu</a></p>
+     </fieldse>
+     
+</form>
+{% endblock %}
+
