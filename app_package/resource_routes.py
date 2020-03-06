@@ -45,7 +45,7 @@ def add_resource():
 
             
     
-@app.route("/",methods=["GET","POST"])
+@app.route("/display_resources",methods=["GET","POST"])
 def display_resources():    
     res_col=mongo.db.resources
     resources=res_col.find()
@@ -68,14 +68,9 @@ def update_resource(a):
         query={"_id":a}
         res_col=mongo.db.resources
         resources=res_col.find_one(query)
-       
-            res_col.update_one(query,new_data)    
-            flash("Resourse Updated")
-            return redirect(url_for("display_resources"))
-        else:
-            flash("Invalid Capacity or Rent")
-            return redirect(url_for("display_resources"))
-
+        res_col.update_one(query,new_data)    
+        flash("Resourse Updated")
+        return redirect(url_for("display_resources"))
         
     else:
         return render_template("update_resource.html",form=form,resources=resources)  

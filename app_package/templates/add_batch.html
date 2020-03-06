@@ -1,42 +1,46 @@
 {% extends "base.html" %}
 {% block content %}
-<table class="table table-dark">
+<div class="container">
+    <div class="row">
+            <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 <form action="" method="POST" novalidate>
-    {{form.hidden_tag()}}
+     {{form.hidden_tag()}}
+    <h1><center>Add Batch</center></h1>
+    <table class="table table-dark" style="width: 600px; margin:auto;">
 
     <tr>
-    {{form.batch_name.label}}{{form.batch_name(size=32,autofocus=True)}}
+    <td>{{form.batch_name.label}}</td><td>{{form.batch_name(size=32,autofocus=True)}}
     {% for error in form.batch_name.errors %}
         <span style="color:red;">{{error}}</span>
-    {% endfor %}
+    {% endfor %}</td>
     </tr>
     <tr>
-    {{form.start_date.label}}{{form.start_date}}
+    <td>{{form.start_date.label}}</td><td>{{form.start_date}}
     {% for error in form.start_date.errors %}
         <span style="color:red;">{{error}}</span>
-    {% endfor %}
+    {% endfor %}</td>
     </tr>
     <tr>
-    {{form.end_date.label}}{{form.end_date}}
+    <td>{{form.end_date.label}}</td><td>{{form.end_date}}
     {% for error in form.end_date.errors %}
         <span style="color:red;">{{error}}</span>
-    {% endfor %}
+    {% endfor %}</td>
     </tr>
     <tr>
-    {{form.course_id.label}}{{form.course_id(size=32)}}
+    <td>{{form.course_id.label}}</td><td>{{form.course_id(size=32)}}
     {% for error in form.course_id.errors %}
         <span style="color:red;">{{error}}</span>
-    {% endfor %}
+    {% endfor %}</td>
     </tr>
      <tr>
-    {{form.b_status.label}}{{form.b_status}}
+    <td>{{form.b_status.label}}</td><td>{{form.b_status}}
     {% for error in form.b_status.errors %}
         <span style="color:red;">{{error}}</span>
-    {% endfor %}
+    {% endfor %}</td>
      </tr>
-    <tr>{{form.submit()}}</p>
-    </fieldset>
-    <p><a href="{{url_for('index')}}">Back to menu</a></p>
+    <tr><td>{{form.submit()}}</td></tr>
+   
+    <p><a href="{{url_for('display_batchs')}}">Back to menu</a></p>
 </form>
 </table>
 {% endblock %}

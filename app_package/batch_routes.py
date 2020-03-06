@@ -4,9 +4,7 @@ from app_package.batch_forms import AddBatchForm, ModifyBatchForm
 
 batch_id=0
 check = True
-@app.route("/", methods=["GET","POST"])
-def index():
-    return redirect(url_for("display_batchs"))
+
 
 @app.route("/display_batchs")
 def display_batchs():
@@ -44,10 +42,10 @@ def add_batch():
             tmp=batch_col.insert_one(batch)
             if tmp.inserted_id==batch_id:
                 flash("New batch added")
-                return redirect(url_for("index"))
+                return redirect(url_for("display_batchs"))
             else:
                 flash("Problem adding batch")
-                return redirect(url_for("index"))
+                return redirect(url_for("display_batchs"))
     else:
         return render_template("add_batch.html",form=form)
 
@@ -69,6 +67,6 @@ def modify_batch(a):
             flash("End date must be earlier than start date")
             return render_template("modify_batch.html", form=form, batch=batch)
         flash("Batch details updated")
-        return redirect(url_for("index"))
+        return redirect(url_for("display_batchs"))
     else:
         return render_template("modify_batch.html",form=form, batch=batch)
