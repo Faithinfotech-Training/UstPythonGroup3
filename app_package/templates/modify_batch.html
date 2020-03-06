@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="header"><p id="nm">Update<p>
+</div>
+<form action="" method="POST" novalidate>
+    {{form.hidden_tag()}}
+    <fieldset>
+    <p>
+    {{form.start_date.label}}{{form.start_date(value=batch.start_date)}}
+    </p>
+    <p>
+    {{form.end_date.label}}{{form.end_date(value=batch.end_date)}}
+    </p>
+    <p>
+    {{form.b_status.label}}{{form.b_status}}
+    </p>
+    <p>{{form.submit()}}</p>
+    </fieldset>
+    <p><a href="{{url_for('index')}}">Back to menu</a></p>    
+</form>
+{% endblock %}
