@@ -1,0 +1,56 @@
+{%extends "base.html"%}
+{%block content%}
+  
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  
+    <a class="navbar-brand" href="#">Menu</a>
+  
+  <ul class="navbar-nav">
+    <li class="nav-item ">
+      <a class="nav-link " style="padding-left:72.5em" href="">Logout</a>
+    </li>
+    
+  </ul>
+</nav>
+
+
+    <ul>
+        <li><a  href="{{url_for('add_resource')}}">Add a Resource</a></li>
+        
+       
+        
+    </ul>
+    
+     </div>
+     
+<table class="table table-dark">
+    <h1>Resource Details</h1>
+            <th> ID</th>
+            <th> Name</th>
+            <th>Capacity</th>
+            <th> Rent</th>
+            <th>Status</th>
+            <th>Type of use</th>
+            <th>Edit</th>
+            
+          
+       </tr>
+       {% for resource in resources %}
+       <tr>
+       
+            <td>{{resource._id}}</td>
+            <td>{{resource.res_name}}</td>
+            <td>{{resource.res_capacity}}</td>
+            <td>{{resource.res_rent}}</td>
+            <td>{{resource.res_status}}</td>
+            <td>{{resource.type_of_use}}</td>
+            <th><a href="{{url_for('update_resource',a=resource._id)}}">Update </a></th>
+          
+        </tr>
+        {% endfor %}
+  </table>
+  
+ 
+     
+    {% endblock %}
