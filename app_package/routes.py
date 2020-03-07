@@ -5,5 +5,5 @@ from app_package.course_forms import AddCourseForm,ModifyCourseForm
 
    
 @app.route("/",methods=["GET","POST"])
-def menu():
-    return render_template("menu.html")
+def dashboard():
+    return render_template("dashboard.html")
