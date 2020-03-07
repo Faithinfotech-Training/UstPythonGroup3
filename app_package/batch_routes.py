@@ -18,6 +18,19 @@ def add_batch():
     global batch_id
     global check
     form=AddBatchForm()
+    res_col=mongo.db.resources
+    res=res_col.find()
+    lst=[]
+    for i in res:
+        lst.append((i["res_name"],i["res_name"]))
+    form.res_name.choices=lst
+
+    course_col=mongo.db.courses
+    cour=course_col.find()
+    lst=[]
+    for j in cour:
+        lst.append((j["courseName"],j["courseName"]))
+    form.courseName.choices=lst
     if form.validate_on_submit():
         fields=["_id","batch_name","start_date", "end_date", "course_id", "b_status"]
         batch_col=mongo.db.batchs

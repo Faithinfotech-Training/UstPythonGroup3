@@ -26,18 +26,24 @@
         <span style="color:red;">{{error}}</span>
     {% endfor %}</td>
     </tr>
-    <tr>
-    <td>{{form.course_id.label}}</td><td>{{form.course_id(size=32)}}
-    {% for error in form.course_id.errors %}
-        <span style="color:red;">{{error}}</span>
-    {% endfor %}</td>
-    </tr>
+    
      <tr>
     <td>{{form.b_status.label}}</td><td>{{form.b_status}}
     {% for error in form.b_status.errors %}
         <span style="color:red;">{{error}}</span>
     {% endfor %}</td>
      </tr>
+     <tr>
+            <td>{{form.courseName.label}}</td><td>{{form.courseName}}
+            {% for error in form.courseName.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}</td>
+            </tr>
+     <td>{{form.res_name.label}}</td><td>{{form.res_name}}
+            {% for error in form.res_name.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}</td>
+             </tr>
     <tr><td>{{form.submit()}}</td></tr>
    
     <p><a href="{{url_for('display_batchs')}}">Back to menu</a></p>
