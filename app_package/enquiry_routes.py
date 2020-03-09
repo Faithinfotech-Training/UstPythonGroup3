@@ -9,6 +9,12 @@ def newenquiry() :
     global e_id
     global check
     form=NewEnquiryForm()
+    course_col=mongo.db.courses
+    course=course_col.find()
+    lst=[]
+    for i in course:
+        lst.append((i["courseName"],i["courseName"]))
+    form.course.choices=lst
     if form.validate_on_submit() :
         fields=["_id","name","age","qualification","phone","passout_year","email","course","source_of_lead","status"]
         e_col=mongo.db.enquiries
@@ -42,6 +48,12 @@ def newenquiry() :
 @app.route("/searchenquiry/<int:e_id>",methods=["GET","POST"])
 def searchenquiry(e_id):
     form=UpdateEnquiryForm()
+    course_col=mongo.db.courses
+    course=course_col.find()
+    lst=[]
+    for i in course:
+        lst.append((i["courseName"],i["courseName"]))
+    form.course.choices=lst
     e_col=mongo.db.enquiries
     data=e_col.find_one({"_id":e_id})
     if form.validate_on_submit():
