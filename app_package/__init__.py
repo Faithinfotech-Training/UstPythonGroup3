@@ -15,4 +15,4 @@ login_manager.login_view="index"
 
 
 
-from app_package import resource_routes,batch_routes,course_routes,enquiry_routes,qualification_routes
+from app_package import login_routes,module_routes,resource_routes,batch_routes,course_routes,enquiry_routes,qualification_routes
