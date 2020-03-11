@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<h2><u><center>Batch Management</center></u></h2>  
+<div class="container">
+<p><a href="{{url_for('add_batch')}}" class= "btn btn-success">Add Batch</a><p>  
+<table class="table table-hover table-condensed">
+<thead>
+    <tr>
+        <th>Batch Id</th>
+        <th>Batch Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Course Id</th>
+        <th>Status</th>
+        <th>Edit</th>
+   </tr>
+</thead>
+<tbody>   
+   {% for batch in batchs %}
+        <tr>
+            <td>{{batch._id}}</td>
+            <td>{{batch.batch_name}}</td>
+            <td>{{batch.start_date}}</td>
+            <td>{{batch.end_date}}</td>
+            <td>{{batch.course_id}}</td>
+            <td>{{batch.b_status}}</td>
+            <td><a  class="btn btn-primary" href="{{url_for('modify_batch', a=batch._id)}}">Update</a></td>
+        </tr>
+    {% endfor %}
+</tbody>
+<tfoot> 
+<tr>
+
+
+</tfoot> 
+</table>
+
+
+{% endblock %}

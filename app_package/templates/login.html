@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>
+            {% if titile %}
+                {{title}}
+            {% else %}
+                Welcome to FlaskTest
+            {% endif %}
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        </head>
+    <body>
+        
+        <div class ="container-fluid p-3 my-3 bg-success text-white text-center">
+        <h1>Training Academy</h1>
+        </div>
+<div class="container">
+    <div class="row">
+            <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+<h1><center>Login</center></h1>
+
+    <table class="table table-secondary" style="width: 600px; margin:auto;">
+
+<form action="{{url_for('login')}}" method="POST" novalidate>
+    {{form.hidden_tag()}}
+    <fieldset>
+        <tr>
+        <td>
+        {{form.username.label}}</td><td>{{form.username(size=32, autofocus=True)}}
+        {% for error in form.username.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor %}
+        </td></tr>
+        <tr>
+        <td>{{form.password.label}}</td><td>{{form.password(size=32)}}
+        {% for error in form.password.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor %}</td></tr>
+        <tr>
+        <td>{{form.remember_me()}}{{form.remember_me.label}}</td><tr>
+        <tr><td>{{form.submit()}}</td></tr>
+    
+ </fieldset>
+</form>
+</table>
+
+</body>
+</html>
+

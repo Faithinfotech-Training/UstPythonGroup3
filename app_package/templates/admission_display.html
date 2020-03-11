@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<h2><u><center>Admission Management</center></u></h2>  
+<div class="container">
+    <div class="row">
+            <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+<p style="margin-left:900px;"><a href="{{url_for('admission')}}" class= "btn btn-success">Back to admission </a></p>
+
+<table class="table table-hover table-condensed">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Qualification</th>
+        <th>Phone</th>
+        <th>Year of passout</th>
+        <th>Email</th>
+        <th>Course</th>
+        <th>Batch</th>
+        <th>Guardian Name</th>
+        <th>Guardian Phone</th>
+        <th>Address</th>
+        <th></th>
+
+   </tr>
+   {% for admit in admission %}
+        <tr>
+            <td>{{admit._id}}</td>
+            <td>{{admit.e_name}}</td>
+            <td>{{admit.e_age}}</td>
+            <td>{{admit.e_gender}}</td>
+            <td>{{admit.e_qualification}}</td>
+            <td>{{admit.e_phone}}</td>
+            <td>{{admit.e_passout_year}}</td>
+            <td>{{admit.e_email}}</td>
+            <td>{{admit.e_course}}</td>
+            <td>{{admit.e_batch}}</td>
+            <td>{{admit.e_guardianname}}</td>
+            <td>{{admit.e_guardianphone}}</td>
+            <td>{{admit.e_address}}</td>
+            <td><a href="{{url_for('update_admission',a_id=admit._id)}}" class= "btn btn-primary">Update</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}-

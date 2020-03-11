@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<h2><u><center>Course Management</center></u></h2>  
+<div class="container">
+
+<table class="table table-hover table-condensed">
+<br>
+<p><a href="{{url_for('addcourse')}}" class= "btn btn-success">Add Course</a> <a href="{{url_for('addmodules')}}" class= "btn btn-success">Add Module</a> <a href="{{url_for('add_qualification')}}" class= "btn btn-success">Add Qualification </a></p>
+
+<thead>
+    <tr>
+        <th>Course Id</th>
+        <th>Course Name</th>
+        <th>Course Fee</th>
+        <th>Course Duration (in weeks)</th>
+        <th>Course Status</th>
+        <th>Course Description</th>
+        <th>Edit</th>
+    </tr>
+</thead>
+<tbody>    
+    {% for course in courses  %}
+    <tr>
+        
+        <td>{{course._id}}</td>
+        <td>{{course.courseName}}</td>
+        <td>{{course.courseFee}}</td>
+        <td>{{course.courseDuration}}</td>
+        <td>{{course.courseStatus}}</td>
+        <td>{{course.courseDescription}}</td>
+        <td><a class="btn btn-primary" href="{{url_for('modifycourse',a=course._id)}}">Edit</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+   
+   
+
+</table>
+
+
+{% endblock %}

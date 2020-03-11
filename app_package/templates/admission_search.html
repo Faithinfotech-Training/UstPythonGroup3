@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2><u><center>Admission Management</center></u></h2>
+<div class="container">
+    <div class="row">
+            <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+<form action="" method="POST" novalidate>
+    {{form.hidden_tag()}}
+    <h4><center>Search</center></h4>
+    <p style="margin-left:370px;">
+        {{form.e_phone.label}}{{form.e_phone(size=32, autofocus=True)}}
+        {% for error in form.e_phone.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor%}	
+    </p>
+    <p style="margin-left:520px;">{{form.submit()}}</p>
+
+<br>
+ <p style="margin-left:470px;"><a href="{{url_for('admission_display')}}" class= "btn btn-success">Back to admission </a></p>
+  
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

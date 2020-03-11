@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<h2><u><center>Enquiry Management</center></u></h2>
+<div class="container">
+    <div class="row">
+            <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+<form action="" method="POST" novalidate>
+     {{form.hidden_tag()}}
+    <h4><center>Search</center></h4>
+    
+    <table class="table table-hover table-secondary" style="width: 600px; margin:auto;">
+
+    <tr>
+	<td>{{form.e_type.label}}</td><td>{{form.e_type( autofocus=True)}}
+        {% for error in form.e_type.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor %}</td>
+       </tr>
+<tr>
+	<td>{{form.e_name.label}}</td><td>{{form.e_name(size=32, autofocus=True)}}
+            {% for error in form.e_name.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}</td>
+        </tr>
+<tr>
+        <td>{{form.submit()}}</td>
+</tr>
+</table>
+<br>
+<p style="margin-left:470px;"><a href="{{url_for('enquiry')}}" class= "btn btn-success">Back to enquiry</a>
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

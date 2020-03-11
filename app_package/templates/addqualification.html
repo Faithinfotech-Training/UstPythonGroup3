@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<h2><u><center>Course Management</center></u></h2>
+
+<table>
+	{% for i in allqual %}
+	<tr>
+	<td>
+	{{i["qualname"]}}
+    </td>
+    <td><a href="{{url_for('deletequalification',a=i._id,b=i.courseName)}}">Delete</a></td>
+	</tr>
+	{% endfor %}
+</table>
+<form action="{{url_for('view_qualification')}}" method="POST" novalidate>
+    {{form.hidden_tag()}}
+     <h4><center>Add Qualification</center></h4>
+    <table class="table table-hover table-secondary" style="width: 600px; margin:auto;">
+  
+<tr>
+    <td>
+            {{form.courseName.label}}
+
+    </td>
+    <td>
+			{{form.courseName(value=course)}}
+            {% for error in form.courseName.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}
+	    
+</td>
+</tr>
+<tr>
+    <td>
+            {{form.qualname.label}}
+
+    </td>
+    <td>
+	{{form.qualname}}
+            {% for error in form.qualname.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}
+	    
+	</td>
+</tr>
+
+<tr>
+    <td>{{form.submit()}}</td>
+</tr>
+</table>
+   
+         <br>
+            <p style="margin-left:620px;"><a href="{{url_for('viewcourses')}}" class= "btn btn-success">Back to course</a></p>
+        
+  
+     
+</form>
+
+{% endblock %}

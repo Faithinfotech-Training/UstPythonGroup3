@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2><u><center>Resource Management</center></u></h2> 
+<div class="container">
+        <div class="row">
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+<form action="" method="POST" novalidate>
+    {{form.hidden_tag()}}
+    <h4><center>Add Resource</center></h4>
+      <table class="table table-hover table-secondary" style="width: 600px; margin:auto;">
+    
+    
+        <tr>
+            <td>
+                {{form.res_name.label}}
+            </td>
+            <td>
+                {{form.res_name(size=32,autofocus=True)}}
+                {% for error in form.res_name.errors %}
+                    <span style="color:red;">{{error}}</span>
+                   {% endfor %}
+            </td>
+        </tr>
+   
+
+        
+        <tr>
+            <td>
+                {{form.res_capacity.label}}
+            </td>
+            <td>
+                {{form.res_capacity(size=32)}}
+                {% for error in form.res_capacity.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{form.res_rent.label}}
+            </td>
+            <td>
+                {{form.res_rent(size=32)}}
+                {% for error in form.res_rent.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor %}
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                {{form.res_status.label}}
+            </td>
+            <td>
+                {{form.res_status}}
+                {% for error in form.res_status.errors %}
+                <span style="color:red;">{{error}}</span>
+                {% endfor %}
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                {{form.type_of_use.label}}
+            </td>
+            <td>
+                {{form.type_of_use}}
+                {% for error in form.type_of_use.errors %}
+                <span style="color:red;">{{error}}</span>
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{form.submit()}}
+            </td>
+                
+        </tr>
+    
+    
+    </table>  
+</div>
+</div>
+</div>
+<br>
+ <p style="margin-left:600px;"><a href="{{url_for('display_resources')}}" class= "btn btn-success">Back to resources</a></p>
+</form>
+{% endblock %} 
+    

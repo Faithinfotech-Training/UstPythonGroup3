@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<h2><u><center>Batch Management</center></u></h2>
+<div class="container">
+    <div class="row">
+            <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+<form action="" method="POST" novalidate>
+     {{form.hidden_tag()}}
+    <h4><center>Add Batch</center></h4>
+    <table class="table table-hover table-secondary" style="width: 600px; margin:auto;">
+
+    <tr>
+    <td>{{form.batch_name.label}}</td><td>{{form.batch_name(size=32,autofocus=True)}}
+    {% for error in form.batch_name.errors %}
+        <span style="color:red;">{{error}}</span>
+    {% endfor %}</td>
+    </tr>
+    <tr>
+    <td>{{form.start_date.label}}</td><td>{{ form.start_date }}
+    {% for error in form.start_date.errors %}
+        <span style="color:red;">{{error}}</span>
+    {% endfor %}</td>
+    </tr>
+    <tr>
+    <td>{{form.end_date.label}}</td><td>{{form.end_date}}
+    {% for error in form.end_date.errors %}
+        <span style="color:red;">{{error}}</span>
+    {% endfor %}</td>
+    </tr>
+    
+     <tr>
+    <td>{{form.b_status.label}}</td><td>{{form.b_status}}
+    {% for error in form.b_status.errors %}
+        <span style="color:red;">{{error}}</span>
+    {% endfor %}</td>
+     </tr>
+     <tr>
+            <td>{{form.courseName.label}}</td><td>{{form.courseName}}
+            {% for error in form.courseName.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}</td>
+            </tr>
+     <td>{{form.res_name.label}}</td><td>{{form.res_name}}
+            {% for error in form.res_name.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}</td>
+             </tr>
+    <tr><td>{{form.submit()}}</td></tr>
+   
+</table>
+<br>
+         <p style="margin-left:470px;"><a href="{{url_for('display_batchs')}}" class= "btn btn-success">Back to batch</a>  
+</form>
+{% endblock %}
+
+
+
+
+

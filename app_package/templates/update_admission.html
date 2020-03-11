@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% block content %}
+<h2><u><center>Admission Management</center></u></h2>  
+<div class="container">
+        <div class="row">
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <form action="" method="POST" novalidate>
+         {{form.hidden_tag()}}
+        <h4><center>Update</center></h4>
+        <table class="table table-hover table-secondary" style="width: 600px; margin:auto;">
+
+        <tr><td>AdmissionId :</td><td>{{data._id}}</td></tr> 
+        <tr><td>Name :</td><td> {{data.e_name}}</td></tr>
+        <tr>
+            <td>
+            {{form.e_age.label}}
+            </td>
+            <td>
+            {{form.e_age(size=32,value=data.e_age)}}
+            {% for error in form.e_age.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}
+            </td>
+            </tr>
+            <tr>
+                <td>
+                        {{form.e_gender.label}}
+                        <td>
+                                {{form.e_gender(value=data.e_gender)}}
+                                {% for error in form.e_gender.errors %}
+                                    <span style="color:red;">{{error}}</span>
+                                {% endfor %}
+                        </td>
+                </td>
+            </tr>
+        <tr>
+            <td>
+                    {{form.e_qualification.label}}
+                    <td>
+                            {{form.e_qualification(value=data.e_qualification)}}
+                            {% for error in form.e_qualification.errors %}
+                                <span style="color:red;">{{error}}</span>
+                            {% endfor %}
+                    </td>
+            </td>
+        </tr>
+            
+        <tr>
+                <td>
+                    {{form.e_phone.label}}
+                </td>
+                <td>
+                     {{form.e_phone(size=32,value=data.e_phone)}}
+                        {% for error in form.e_phone.errors %}
+                            <span style="color:red;">{{error}}</span>
+                        {% endfor %}
+                    </td>
+               
+        </tr>
+            
+        <tr>
+                <td>
+                        {{form.e_passout_year.label}}
+
+                </td>
+                <td>
+                        {{form.e_passout_year(size=32,value=data.e_passout_year)}}
+                        {% for error in form.e_passout_year.errors %}
+                            <span style="color:red;">{{error}}</span>
+                        {% endfor %}
+                </td>    
+            </tr>
+               
+
+        <tr>
+            <td>
+                {{form.e_email.label}}
+            </td>
+            <td>
+                {{form.e_email(size=32,value=data.e_email)}}
+                {% for error in form.e_email.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor %}
+            </td>
+        </tr>
+            
+        <tr>
+            <td>
+             {{form.e_course.label}}
+            </td>
+            <td>
+            {{form.e_course(value=data.e_course)}}
+            {% for error in form.e_course.errors %}
+                    <span style="color:red;">{{error}}</span>
+            {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                    {{form.e_batch.label}}
+            </td>
+            <td>
+                    {{form.e_batch(value=data.e_batch)}}
+                    {% for error in form.e_batch.errors %}
+                        <span style="color:red;">{{error}}</span>
+                    {% endfor %}
+            </td>
+                
+        </tr>
+        <tr>
+            <td>
+             {{form.e_guardianname.label}}
+            </td>
+            <td>
+            {{form.e_guardianname(value=data.e_guardianname)}}
+            {% for error in form.e_guardianname.errors %}
+                    <span style="color:red;">{{error}}</span>
+            {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+             {{form.e_guardianphone.label}}
+            </td>
+            <td>
+            {{form.e_guardianphone(value=data.e_guardianphone)}}
+            {% for error in form.e_guardianphone.errors %}
+                    <span style="color:red;">{{error}}</span>
+            {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+             {{form.e_address.label}}
+            </td>
+            <td>
+            {{form.e_address(value=data.e_address)}}
+            {% for error in form.e_address.errors %}
+                    <span style="color:red;">{{error}}</span>
+            {% endfor %}
+            </td>
+        </tr>
+    <tr>
+        <td>
+            
+        </td>
+    </tr>
+        <tr>
+        <td>
+            {{form.submit()}}
+        </td>
+    </tr>
+        </table>
+        <br>
+ <p style="margin-left:470px;"><a href="{{url_for('admission_display')}}" class= "btn btn-success">Back to admission </a></p>
+        </form>
+        </div>
+        </div>
+        </div>
+{% endblock %}
+            

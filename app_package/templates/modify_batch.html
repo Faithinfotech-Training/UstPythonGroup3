@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h2><u><center>Batch Management</center></u></h2>
+<div class="container">
+        <div class="row">
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <form action="" method="POST" novalidate>
+         {{form.hidden_tag()}}
+        <h4><center>Update</center></h4>
+        <table class="table table-hover table-secondary" style="width: 600px; margin:auto;">
+   
+    <tr>
+    <td>{{form.start_date.label}}</td><td>{{form.start_date(value=batch.start_date)}}
+    </td></tr>
+    <tr>
+   <td> {{form.end_date.label}}</td><td>{{form.end_date(value=batch.end_date)}}
+   </td></tr>
+    <tr>
+    <td>
+    {{form.b_status.label}}</td><td>{{form.b_status}}</td></tr>
+    <tr>
+    <td>{{form.submit()}}</td></tr>
+   
+    
+    </table>
+    <br>
+         <p style="margin-left:470px;"><a href="{{url_for('display_batchs')}}" class= "btn btn-success">Back to batch</a>  
+</form>
+{% endblock %}
+
+	

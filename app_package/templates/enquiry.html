@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<h2><u><center>Enquiry Management</center></u></h2>
+<p><center><a class= "btn btn-primary" href="{{url_for('enquirysearch')}}">Search Enquiry</a>
+<a class= "btn btn-primary" href="{{url_for('newenquiry')}}">New Enquiry</a>
+<a class= "btn btn-primary" href="{{url_for('viewenquiry')}}">View All Enquiry</a></center></p>
+{% endblock  %}

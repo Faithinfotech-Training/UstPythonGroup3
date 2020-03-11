@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+            <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+<form action="{{url_for('add_admission')}}" method="POST" novalidate> <!--{url_for('add_admission')}} -->
+    {{form.hidden_tag()}}
+    <h1><center>Register</center></h1>
+	<table class="table table-dark" style="width: 600px; margin:auto;">
+
+    <tr>
+        <td>
+            {{form.e_name.label}}</td><td>{{form.e_name(size=32,autofocus=True,value=edata.name)}}
+            {% for error in form.e_name.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}</td>
+        </tr>
+         <tr>
+        <td>
+            {{form.e_age.label}}</td><td>{{form.e_age(size=32,value=edata.age)}}
+            {% for error in form.e_age.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}
+        </td>
+        </tr>
+        <tr>
+            <td>
+                {{form.e_gender.label}}</td><td>{{form.e_gender(size=32)}}
+                {% for error in form.e_gender.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor %}
+            </td>
+            </tr>
+	<tr>
+	<td>
+            {{form.e_qualification.label}}</td><td>{{form.e_qualification(value=edata.qualification)}}
+            {% for error in form.e_qualification.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}
+       </td>
+	</tr>
+        <tr>
+	<td>
+            
+            {{form.e_phone.label}}</td><td>{{form.e_phone(size=32,value=edata.phone)}}
+            {% for error in form.e_phone.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}
+        </td>
+	</tr>
+        <tr>
+	<td>
+            {{form.e_passout_year.label}}</td><td>{{form.e_passout_year(size=32,value=edata.passout_year)}}
+            {% for error in form.e_passout_year.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}
+        </td>
+	</tr>
+        <tr>
+	<td>
+        
+            {{form.e_email.label}}</td><td>{{form.e_email(size=32,value=edata.email)}}
+            {% for error in form.e_email.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}
+        </td>
+	</tr>
+        <tr>
+	<td>
+            {{form.e_course.label}}</td><td>{{form.e_course(value=edata.course)}}
+            {% for error in form.e_course.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}
+        </td>
+	</tr>
+        <tr>
+	<td>
+            {{form.e_batch.label}}</td><td>{{form.e_batch(size=32)}}
+            {% for error in form.e_batch.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}
+        </td>
+	</tr>
+        <tr>
+	<td>
+            {{form.e_guardianname.label}}</td><td>{{form.e_guardianname(size=32)}}
+            {% for error in form.e_guardianname.errors %}
+                <span style="color:red;">{{error}}</span>
+            {% endfor %}
+         </td>
+    </tr>
+    <tr>
+        <td>
+                {{form.e_guardianphone.label}}</td><td>{{form.e_guardianphone(size=32)}}
+                {% for error in form.e_guardianphone.errors %}
+                    <span style="color:red;">{{error}}</span>
+                {% endfor %}
+             </td>
+        </tr>
+        <tr>
+            <td>
+                    {{form.e_address.label}}</td><td>{{form.e_address(size=32)}}
+                    {% for error in form.e_address.errors %}
+                        <span style="color:red;">{{error}}</span>
+                    {% endfor %}
+                 </td>
+            </tr>
+        <tr>
+	<td>{{form.submit()}}
+  </td>
+	</tr>	
+</table>
+</form>
+</div>
+</div>
+</div>
+{% endblock %}
+            
